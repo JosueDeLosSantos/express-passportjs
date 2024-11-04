@@ -1,0 +1,33 @@
+GET http://localhost:3000/
+
+###
+
+GET http://localhost:3000/users/
+
+###
+
+POST http://localhost:3000/users/sign-up
+content-type: application/json
+
+{
+    "username": "jhon",
+    "password": "password123"
+}
+
+###
+
+POST http://localhost:3000/auth/log-in
+content-type: application/json
+
+{
+    "username": "jhon",
+    "password": "password123"
+}
+
+###
+
+POST http://localhost:3000/auth/log-out
+
+###
+
+DELETE http://localhost:3000/users/

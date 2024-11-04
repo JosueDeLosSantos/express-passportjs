@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Users</title>
+	</head>
+	<body>
+		<ul>
+			<% users.forEach((user) => { %>
+			<li><%= user.username %></li>
+			<% }); %>
+		</ul>
+		<br />
+		<form action="/users" method="post">
+			<input type="text" name="filter" placeholder="filter" />
+			<input type="submit" value="Submit" />
+		</form>
+		<br />
+		<div>
+			<a href="/users/delete">
+				<button type="button">Delete all</button>
+			</a>
+		</div>
+
+		<br />
+		<div>
+			<a href="/">
+				<button type="button">Go home</button>
+			</a>
+		</div>
+	</body>
+</html>
