@@ -1,4 +1,3 @@
-var express = require("express");
 const pool = require("../db/pool");
 const LocalStrategy = require("passport-local").Strategy;
 const passport = require("passport");
@@ -63,25 +62,4 @@ passport.deserializeUser(async (id, done) => {
 	}
 });
 
-const router = express.Router();
-
-// add a route that will authenticate the user when they submit the form
-router.post(
-	"/log-in",
-	passport.authenticate("local", {
-		successRedirect: "/",
-		failureRedirect: "/failure"
-	})
-);
-
-// adds sign out which will terminate the session.
-router.post("/log-out", function (req, res, next) {
-	req.logout((err) => {
-		if (err) {
-			return next(err);
-		}
-		res.redirect("/");
-	});
-});
-
-module.exports = router;
+module.exports = passport;
