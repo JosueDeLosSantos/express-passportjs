@@ -6,6 +6,11 @@ async function getAllUsers() {
 	return rows;
 }
 
+async function getSession() {
+	const { rows } = await pool.query("SELECT * FROM session");
+	return rows;
+}
+
 async function addUser(username, password) {
 	const hashedPassword = await bcrypt.hash(password, 10); // encrypts passwords
 	const rows = await pool.query(
@@ -19,4 +24,4 @@ async function deleteAllUsers() {
 	await pool.query("TRUNCATE TABLE users");
 }
 
-module.exports = { getAllUsers, addUser, deleteAllUsers };
+module.exports = { getAllUsers, addUser, deleteAllUsers, getSession };

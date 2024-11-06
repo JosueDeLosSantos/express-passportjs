@@ -6,6 +6,10 @@ GET http://localhost:3000/users/
 
 ###
 
+GET http://localhost:3000/users/sessions
+
+###
+
 POST http://localhost:3000/users/sign-up
 content-type: application/json
 
@@ -27,6 +31,14 @@ content-type: application/json
 ###
 
 POST http://localhost:3000/users/log-out
+
+###
+
+GET http://localhost:3000/users/is-authenticated
+
+###
+
+GET http://localhost:3000/users/is-logged-in
 
 ###
 

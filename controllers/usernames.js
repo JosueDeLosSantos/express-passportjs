@@ -6,6 +6,12 @@ async function getUsers(req, res) {
 	res.json({ users: users });
 }
 
+async function getSessions(req, res) {
+	// get all usernames
+	const sessions = await db.getSession();
+	res.json({ sessions: sessions });
+}
+
 async function addNewUser(req, res) {
 	const { username, password } = req.body;
 	const user = await db.addUser(username, password);
@@ -17,4 +23,4 @@ async function deleteAllUsers(_, res) {
 	res.json({ message: "All users deleted" });
 }
 
-module.exports = { getUsers, addNewUser, deleteAllUsers };
+module.exports = { getUsers, addNewUser, deleteAllUsers, getSessions };
