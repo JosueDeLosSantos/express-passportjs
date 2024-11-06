@@ -34,6 +34,8 @@ app.use(
 			// connects to database
 			pool: pool
 		}),
+		// generates a random string in the CLI
+		// node -e "console.log(require('crypto').randomBytes(16).toString('hex'));"
 		secret: process.env.SESSION_SECRET_KEY,
 		resave: false,
 		/* 
