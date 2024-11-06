@@ -28,7 +28,7 @@ router.post(
 
 /* GET isUserLoggedIn */
 router.get("/is-authenticated", (req, res) => {
-	// this is a basic way to authenticate users
+	// this is a basic way to check if the user is logged in
 	if (req.isAuthenticated()) {
 		res.json({ message: "User is logged in" });
 	} else {
