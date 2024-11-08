@@ -14,13 +14,14 @@ async function getSessions(req, res) {
 
 async function addNewUser(req, res) {
 	const { username, password } = req.body;
-	const user = await db.addUser(username, password);
-	res.json({ user: user });
+	await db.addUser(username, password);
+	res.render("log-in-form");
 }
 
 async function deleteAllUsers(_, res) {
 	await db.deleteAllUsers();
-	res.json({ message: "All users deleted" });
+	await db.deleteSessions();
+	res.json({ message: "All users deleted and sessions" });
 }
 
 module.exports = { getUsers, addNewUser, deleteAllUsers, getSessions };

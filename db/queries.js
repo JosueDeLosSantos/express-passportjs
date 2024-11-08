@@ -24,4 +24,8 @@ async function deleteAllUsers() {
 	await pool.query("TRUNCATE TABLE users");
 }
 
-module.exports = { getAllUsers, addUser, deleteAllUsers, getSession };
+async function deleteSessions() {
+	await pool.query("TRUNCATE TABLE session");
+}
+
+module.exports = { getAllUsers, addUser, deleteAllUsers, getSession, deleteSessions };

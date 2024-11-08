@@ -21,8 +21,8 @@ router.get("/sessions", usernames.getSessions);
 router.post(
 	"/log-in",
 	passport.authenticate("local", {
-		successRedirect: "/",
-		failureRedirect: "/failure"
+		successRedirect: "/success",
+		failureRedirect: "/log-in-error"
 	})
 );
 
@@ -43,7 +43,7 @@ router.get("/is-logged-in", isAuth, (req, res) => {
 });
 
 // adds sign out which will terminate the session.
-router.post("/log-out", function (req, res, next) {
+router.get("/log-out", function (req, res, next) {
 	req.logout((err) => {
 		if (err) {
 			return next(err);

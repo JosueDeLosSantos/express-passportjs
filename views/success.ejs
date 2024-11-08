@@ -6,14 +6,11 @@
 		<title>Filter</title>
 	</head>
 	<body>
-		<ul>
-			<% users.forEach((user) => { %>
-			<li><%= user.username %></li>
-			<% }); %>
-		</ul>
+		<h1>Congratulations you are logged in</h1>
+		<br />
 		<div>
-			<a href="/users">
-				<button type="button">See all users</button>
+			<a href="/users/log-out">
+				<button type="button">Log out</button>
 			</a>
 		</div>
 	</body>
